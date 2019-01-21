@@ -1,0 +1,107 @@
+.flex-between{
+     display:-webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-justify-content:space-between;
+    justify-content:space-between;
+    -ms-justify-content:space-between;
+    -moz-justify-content:space-between;
+    justify-content: space-between;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+   -ms-align-items:center;
+    align-items:center;
+}
+.pad-15{
+	padding: 15px;
+}
+.container-fff{
+	background: #fff;
+	border-radius: 10px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+.container-fff .title{
+	height: 40px;
+	line-height: 40px;
+	background-color: #fafafa;
+	padding:0 15px;
+}
+.container-fff .layui-row{
+	/* padding: 10px; */
+}
+.notice-wrap .layui-card,
+.notice-wrap .layuiadmin-card-list p.layuiadmin-big-font{
+	color: #fff;
+	text-align: left;
+}
+.notice-wrap .layuiadmin-card-list{
+	height: 70px;
+}
+.notice-wrap .layuiadmin-card-list span{
+	font-size: 16px;
+}
+.notice-wrap .layuiadmin-card-list>p:nth-child(1)>span:nth-child(1){
+	font-weight: 600;
+}
+.preview-wrap .flex-between p{
+	flex: 1;
+	height: 42px;
+	border: 1px solid #e5e5e5;
+	line-height: 42px;
+	text-align: center;
+}
+.preview-wrap .flex-between p:nth-child(1){
+	border-right: 0;
+	background-color: #f6f6f6;
+}
+.preview-wrap .flex-between p:nth-child(2){
+	color: #5f98c5;
+	font-weight: 600;
+}
+.layui-table .flex-between>span,
+.layui-table .flex-between>div{
+	flex: 1;
+	text-align: center;
+}
+.layui-table .flex-between>div>span{
+	color: #3784bc;
+	font-weight: 600;
+}
+.transform-wrap .flex-between p:nth-child(1){
+	background-color: transparent;
+}
+.transform-wrap .flex-between p:nth-child(2){
+	border-left: 0;
+	text-align: left;
+}
+.transform-wrap .flex-between p::before{
+	content: "";
+	display:block;
+	width: 6px;
+	height: 44px;
+	margin-top: -1px;
+	margin-left: -1px;
+	position: absolute;
+	
+}
+.transform-wrap div:nth-child(2n+1) .flex-between p:nth-child(1)::before{
+	background-color: #56a8fc;
+}
+.transform-wrap div:nth-child(2n) .flex-between p:nth-child(1)::before{
+	background-color: #8f7ee6;
+}
+.btn-bar{
+	float: right;
+}
+.left-table tr>td{
+	text-align: center;
+}
+.left-table tr>td{
+	font-weight: 600;
+}
+.left-table tr>td:nth-child(1){
+	background-color: #f6f6f6;
+	color: #000;
+}

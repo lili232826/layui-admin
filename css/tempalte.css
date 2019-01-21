@@ -1,0 +1,25 @@
+.content-wrap{
+}
+.container-fff{
+	background: #fff;
+	padding:15px;
+}
+.content-wrap .layui-col-md12 {
+    background: #fff;
+    height: auto;
+    padding-bottom: 50px;
+	padding:15px;
+}
+.income-page .layui-card{
+	background: #f2f2f2;
+}
+.income-page i{
+	font-size:22px;
+}
+
+.icon-downarrow{
+	
+}
+.icon-uparrow{
+    color: #f90404;
+}

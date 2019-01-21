@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>资产月统计表</title>
+		<link rel="stylesheet" href="../plugin/layui/css/layui.css">
+		<link rel="stylesheet" href="../css/iconfont.css">
+		<link rel="stylesheet" href="../css/admin.css">
+		<link rel="stylesheet" href="../css/tempalte.css">
+		<script src="../js/jquery-2.1.1.min.js"></script>
+		<script src='../plugin/layui/layui.js'></script>
+		<style>
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layui-fluid" style="height: 100%;box-sizing: border-box;">
+			<div class="container-fff income-page" style="height: 100%;box-sizing: border-box;">
+				<div class="layui-row layui-col-space15" style="height: 100%;box-sizing: border-box;">
+					<div class="layui-col-md12">
+						<div class="table-bar">
+							企业资产情况一览：
+							<div class="layui-inline">
+								<!-- <input class="layui-input" name="id" id="demoReload" autocomplete="off"> -->
+							</div>
+						</div>
+					</div>
+					<div class="layui-col-xs7 layui-col-sm7 layui-col-md7">
+						<div class="layui-row layui-col-space15">
+							<div class="layui-col-sm4 layui-col-md4">
+								<div class="layui-card">
+									<div class="layui-card-body layuiadmin-card-list">
+									<p>
+										总计访问量 
+									</p>
+									<p class="layuiadmin-big-font">9.999.666<i class="layui-inline layui-icon iconfont icon-uparrow"></i></p>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-sm4 layui-col-md4">
+								<div class="layui-card">
+								<div class="layui-card-body layuiadmin-card-list">
+									<p>
+									总计访问量 
+									</p>
+									<p class="layuiadmin-big-font">9,999,666<i class="layui-inline layui-icon iconfont icon-downarrow"></i></p>
+								</div>
+								</div>
+							</div>
+							<div class="layui-col-sm4 layui-col-md4">
+								<div class="layui-card">
+								<div class="layui-card-body layuiadmin-card-list">
+									<p>
+									总计访问量 
+									</p>
+									<p class="layuiadmin-big-font">9,999,666<i class="layui-inline layui-icon iconfont icon-downarrow"></i></p>
+								</div>
+								</div>
+							</div>
+							<div class="layui-col-xs12 layui-col-sm12 layui-col-md12 " style="height: 588px;">
+								<table class="layui-table layui-form" id="test-tree-table1"></table>
+							</div>
+						</div>
+					</div>
+					<div class="layui-col-xs5 layui-col-sm5 layui-col-md5" style="height: 705px;">
+						<div id="yearChart" style="height: 100%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+				
+						layui.config({
+							base: '../js/',
+						})
+						layui.use(['treetable','form'],function(){
+							var data=[
+								{"id":1,"pid":0,"title":"收入总额"},
+								{"id":2,"pid":0,"title":"成本总额"},
+								{"id":3,"pid":0,"title":"费用合计"},
+								
+								
+			// 					 {"id":10,"pid":4,"title":"1-1-1-1"},
+			// 					{"id":11,"pid":4,"title":"1-1-1-2"},
+								];
+							var o = layui.$,treetable = layui.treetable;
+							var form = layui.form,layer = layui.layer;
+							treetable.render({
+								elem: '#test-tree-table1',
+								data: data,
+								field: 'title',
+								is_checkbox: false,
+								/*icon_val: {
+									open: "&#xe619;",
+									close: "&#xe61a;"
+								},
+								space: 4,*/
+								cols: [
+									{
+										field: 'title',
+										title: '标题',
+										width: '30%',
+									},
+									{
+										field: 'id',
+										title: 'ID',
+										width: '20%'
+									},
+									{
+										title: '状态',
+										width: '20%',
+										template: function(item){
+											return '<input type="checkbox" lay-skin="switch" lay-filter="status" lay-text="开启|关闭">';
+										}
+									},
+									{
+										field: 'pid',
+										title: '父ID',
+										width: '20%',
+									},
+									{
+										field: 'actions',
+										title: '操作',
+										width: '30%',
+										template: function(item){
+											var tem = [];
+											if(item.pid == 0){
+												tem.push('<a class="add-child" lay-filter="add">添加子级</a>');
+											}
+											tem.push('<a lay-filter="edit">编辑</a>');
+											if(item.pid > 0){
+												tem.push('<a class="set-attr">设置属性</a>');
+											}
+											return tem.join(' <font>|</font> ')
+										},
+									},
+								]
+							});
+							
+							treetable.on('treetable(add)',function(data){
+								layer.msg('添加操作');
+								console.dir(data);
+							})
+							
+							treetable.on('treetable(edit)',function(data){
+								layer.msg('编辑操作');
+								console.dir(data);
+							})
+							
+							o('.up-all').click(function(){
+								treetable.all('up');
+							})
+							
+							o('.down-all').click(function(){
+								treetable.all('down');
+							})
+							
+							o('.get-checked').click(function(){
+								console.dir(treetable.all('checked'));
+							})
+							
+							form.on('switch(status)',function(data){
+								layer.msg('监听状态操作');
+								console.dir(data);
+							})
+						})
+				
+		})
+	</script>
+</html>

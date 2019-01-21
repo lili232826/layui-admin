@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>物业可视化</title>
+		<link rel="stylesheet" href="plugin/layui/css/layui.css">
+		<link rel="stylesheet" href="css/iconfont.css">
+		<link rel="stylesheet" href="css/admin.css">
+		<script src='plugin/layui/layui.js'></script>
+		<script src="js/jquery-2.1.1.min.js"></script>
+	</head>
+	<body class="layui-layout-body" layadmin-themealias="default">
+		<div id="LAY_app" class="">
+			<div class="layui-layout layui-layout-admin">
+				<div class="layui-header">
+					<!-- 头部区域 -->
+					<ul class="layui-nav layui-layout-left">
+					  <li class="layui-nav-item layadmin-flexible" >
+						<a href="javascript:;" id="flexible" title="侧边伸缩">
+						  <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+						</a>
+					  </li>
+					  <li class="layui-nav-item layui-hide-xs" >
+						<a href="javascript:;" target="_blank" title="切换页面">
+						  <i class="layui-icon layui-icon-template"></i>
+						</a>
+					  </li>
+					</ul>
+					<ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right" style="padding-right:20px">
+					  <li class="layui-nav-item layui-hide-xs" >
+						<a href="javascript:;" id="fullscreen" layadmin-event="fullscreen">
+						  <i class="layui-icon layui-icon-screen-full"></i>
+						</a>
+					  </li>
+					  <li class="layui-nav-item" >
+						<a href="javascript:;">
+						  <cite>贤心</cite>
+						</a>
+						<dl class="layui-nav-child">
+						  <dd><a lay-href="set/user/info.html">基本资料</a></dd>
+						  <dd><a lay-href="set/user/password.html">修改密码</a></dd>
+						  <hr>
+						  <dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
+						</dl>
+					  </li>
+					</ul>
+				</div>
+				<!-- 侧边菜单 -->
+				<div class="layui-side layui-side-menu">
+					<div class="layui-side-scroll">
+						<div class="layui-logo" lay-href="home/console.html" style="line-height: 18px;padding:0">
+							<div style="margin-top: 8px;">物业经营决策系统<p style="font-size:12px;font-family: SimSun;-webkit-transform:scale(.8);transform:scale(.8);white-space:no-wrap;">Property management decision system</p></div>	
+						</div>
+						<ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
+							<li  class="layui-nav-item">
+							  <a lay-href="page/page1.html">
+								<i class="layui-icon iconfont icon-shouzhimingxicaifuqianbao-xianxing"></i>
+								<cite>企业财务收支月报</cite>
+							  </a>
+							</li>
+							<li  class="layui-nav-item ">
+								<a lay-href="page/page2.html">
+									<i class="layui-icon iconfont icon-zichan"></i>
+									<cite>资产月统计表</cite>
+								</a>
+							</li>
+							<li  class="layui-nav-item ">
+								<a lay-href="page/page3.html">
+									<i class="layui-icon iconfont icon-fuzhaiqingkuang" style="font-size:22px;"></i>
+									<cite>负债月统计表</cite>
+								</a>
+							</li>
+							<li  class="layui-nav-item ">
+								<a lay-href="page/page4.html" >
+									<i class="layui-icon iconfont icon-huiyuanquanyi"></i>
+									<cite>所有者权益月报表</cite>
+								</a>
+							</li>
+							<li  class="layui-nav-item ">
+								<a  lay-href="page/page5.html">
+									<i class="layui-icon iconfont icon-liudongzijintubiao22" style="font-size:20px;"></i>
+									<cite>现金流月报表</cite>
+								</a>
+							</li>
+							<li  class="layui-nav-item">
+								<a  lay-href="page/page6.html">
+									<i class="layui-icon iconfont icon-qita1"></i>
+									<cite>财务其他月报表</cite>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div> 
+				<!-- 页面标签 -->
+				<div class="layadmin-pagetabs" id="LAY_app_tabs">
+					<div class="layui-icon layadmin-tabs-control layui-icon-prev" layadmin-event="leftPage" id="leftPage"></div>
+					<div class="layui-icon layadmin-tabs-control layui-icon-next" layadmin-event="rightPage" id="rightPage"></div>
+					<div class="layui-icon layadmin-tabs-control layui-icon-down">
+					  <ul class="layui-nav layadmin-tabs-select" lay-unselect lay-filter="layadmin-pagetabs-nav">
+						<li class="layui-nav-item">
+						  <a href="javascript:;"></a>
+						  <dl class="layui-nav-child layui-anim-fadein">
+							<dd layadmin-event="closeThisTabs"><a href="javascript:;">关闭当前标签页</a></dd>
+							<dd layadmin-event="closeOtherTabs"><a href="javascript:;">关闭其它标签页</a></dd>
+							<dd layadmin-event="closeAllTabs"><a href="javascript:;">关闭全部标签页</a></dd>
+						  </dl>
+						</li>
+					  </ul>
+					</div>
+					<div class="layui-tab" lay-filter="layadmin-layout-tabs" lay-unauto lay-allowclose="true">
+					  <ul class="layui-tab-title" id="LAY_app_tabsheader">
+						<li lay-id="page/page0.html" lay-attr="page/page0.html" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
+					  </ul>
+					</div>
+				</div>
+				 <!-- 主体内容 -->
+				<div class="layui-body" id="LAY_app_body">
+					<div class="layadmin-tabsbody-item layui-show">	
+						<iframe class='layadmin-iframe' src="page/page2.html"></iframe>
+					</div>
+				</div>		
+				
+			</div>
+		</div>
+	</body>
+<script src="js/index.js"></script>     
+</html>
